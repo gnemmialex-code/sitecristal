@@ -107,7 +107,7 @@ export default function Location() {
                 style={{ border: 0, minHeight: 420 }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=2.3490%2C48.8695%2C2.3560%2C48.8725&layer=mapnik&marker=48.8710%2C2.3525"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=2.3477%2C48.8687%2C2.3547%2C48.8717&layer=mapnik&marker=48.8702014%2C2.3512492"
               />
             </div>
           </Reveal>

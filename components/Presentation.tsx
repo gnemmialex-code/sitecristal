@@ -1,23 +1,19 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion } from "motion/react";
 import Reveal from "./Reveal";
 
 export default function Presentation() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
+  const [muted, setMuted] = useState(true);
 
-  const toggle = () => {
+  const toggleSound = () => {
     const v = videoRef.current;
     if (!v) return;
-    if (v.paused) {
-      v.play();
-      setPlaying(true);
-    } else {
-      v.pause();
-      setPlaying(false);
-    }
+    const next = !muted;
+    v.muted = next;
+    if (!next) v.play().catch(() => {});
+    setMuted(next);
   };
 
   return (
@@ -45,51 +41,43 @@ export default function Presentation() {
             <video
               ref={videoRef}
               className="h-full w-full object-cover"
+              autoPlay
+              loop
+              muted
               playsInline
-              controls={playing}
-              poster=""
               preload="metadata"
             >
-              {/* Déposez votre vidéo de présentation ici (format paysage 16:9) */}
-              <source src="/videos/presentation.mp4" type="video/mp4" />
+              {/* Film de présentation (format paysage 16:9) */}
+              <source src="/videos/interview.mp4" type="video/mp4" />
             </video>
 
-            {/* Placeholder visuel tant qu'aucune vidéo n'est fournie */}
-            {!playing && (
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(171,132,66,0.45),transparent_55%),linear-gradient(135deg,#1a1916,#0d0d0c)]" />
-            )}
+            {/* Libellé */}
+            <div className="pointer-events-none absolute bottom-6 left-6 text-left">
+              <span className="block font-display text-2xl font-semibold text-cream drop-shadow">
+                Le Cristal 1981
+              </span>
+              <span className="block text-sm text-cream/70 drop-shadow">
+                Film de présentation · 2 rue de Mazagran
+              </span>
+            </div>
 
-            {!playing && (
-              <button
-                onClick={toggle}
-                aria-label="Lire la vidéo de présentation"
-                className="absolute inset-0 grid place-items-center"
-              >
-                <span className="pulse-ring relative grid h-20 w-20 place-items-center rounded-full bg-cream/95 text-ink transition-transform duration-300 group-hover:scale-110">
-                  <svg viewBox="0 0 24 24" className="ml-1 h-7 w-7 fill-current">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </span>
-                <span className="absolute bottom-6 left-6 text-left">
-                  <span className="block font-display text-2xl font-semibold text-cream">
-                    Le Cristal 1981
-                  </span>
-                  <span className="block text-sm text-cream/60">
-                    Film de présentation · 2 rue de Mazagran
-                  </span>
-                </span>
-              </button>
-            )}
+            {/* Unique contrôle : activer / couper le son */}
+            <button
+              onClick={toggleSound}
+              aria-label={muted ? "Activer le son" : "Couper le son"}
+              className="absolute bottom-6 right-6 grid h-12 w-12 place-items-center rounded-full bg-cream/95 text-ink shadow-lg transition-transform duration-300 hover:scale-110"
+            >
+              {muted ? (
+                <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4.03v8.05A4.5 4.5 0 0 0 16.5 12zM19 9.27l-1.4 1.4L19 12l-1.4 1.34L19 14.73l1.4-1.39L21.8 12 19 9.27z" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4.03v8.05A4.5 4.5 0 0 0 16.5 12zM14 3.23v2.06a7 7 0 0 1 0 13.42v2.06a9 9 0 0 0 0-17.54z" />
+                </svg>
+              )}
+            </button>
           </div>
-        </Reveal>
-
-        <Reveal delay={0.15}>
-          <p className="mt-6 text-center text-xs text-ink/45">
-            Astuce : placez votre film dans{" "}
-            <code className="rounded bg-ink/10 px-1.5 py-0.5">
-              public/videos/presentation.mp4
-            </code>
-          </p>
         </Reveal>
       </div>
     </section>

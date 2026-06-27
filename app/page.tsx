@@ -5,6 +5,7 @@ import Marquee from "@/components/Marquee";
 import About from "@/components/About";
 import Presentation from "@/components/Presentation";
 import Gallery from "@/components/Gallery";
+import PhotoGallery from "@/components/PhotoGallery";
 import Reviews from "@/components/Reviews";
 import Menu from "@/components/Menu";
 import Location from "@/components/Location";
@@ -22,6 +23,7 @@ export default function Home() {
         <About />
         <Presentation />
         <Gallery />
+        <PhotoGallery />
         <Reviews />
         <Menu />
         <Location />

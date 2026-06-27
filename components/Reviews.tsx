@@ -3,26 +3,26 @@
 import Reveal from "./Reveal";
 
 const reviews = [
-  {
-    text: "Le meilleur kebab de Paris, sans débat. La viande est marinée comme nulle part ailleurs, et le pain est incroyable.",
-    name: "Sofiane M.",
-    meta: "Habitué depuis 12 ans",
-  },
-  {
-    text: "Une institution. Mon père m'y emmenait enfant, j'y emmène mes enfants. La recette n'a jamais bougé.",
-    name: "Clara D.",
-    meta: "Avis Google · ★★★★★",
-  },
-  {
-    text: "Les sauces maison font toute la différence. L'accueil est chaleureux, on se sent comme à la maison.",
-    name: "Mehdi B.",
-    meta: "Quartier Mazagran",
-  },
+  { text: "Le meilleur kebab de Paris, sans débat. La viande est marinée comme nulle part ailleurs, et le pain est incroyable.", name: "Sofiane M." },
+  { text: "Une institution. Mon père m'y emmenait enfant, j'y emmène mes enfants. La recette n'a jamais bougé.", name: "Clara D." },
+  { text: "Les sauces maison font toute la différence. L'accueil est chaleureux, on se sent comme à la maison.", name: "Mehdi B." },
+  { text: "Viande tendre, pain frais, portions généreuses. Rien à redire, c'est une valeur sûre.", name: "Julien P." },
+  { text: "Je viens de loin rien que pour ce kebab. Le goût est constant depuis des années.", name: "Amine K." },
+  { text: "Service rapide et souriant, produits de qualité. Le sandwich frites boisson est imbattable.", name: "Laura V." },
+  { text: "La meilleure adresse du quartier. Tout est fait maison et ça se sent à chaque bouchée.", name: "Thomas R." },
+  { text: "Pain moelleux, viande savoureuse, sauces parfaites. Un classique parisien qui ne déçoit jamais.", name: "Nadia S." },
+  { text: "Excellent rapport qualité-prix. On sort rassasié et content à chaque fois.", name: "Kevin L." },
+  { text: "Une légende qui mérite sa réputation. Frites maison croustillantes, top !", name: "Inès M." },
+  { text: "Toujours du monde, et pour cause. La qualité est au rendez-vous depuis 1981.", name: "Rachid T." },
+  { text: "Goût authentique, accueil au top. Mon kebab préféré sur Paris sans hésiter.", name: "Élodie F." },
+  { text: "Des produits frais, une cuisson parfaite. On revient les yeux fermés.", name: "Bilal A." },
+  { text: "Le sandwich seul vaut déjà le détour. Avec frites maison c'est encore mieux.", name: "Marine C." },
+  { text: "Adresse incontournable du 10e. Convivial, généreux et délicieux.", name: "Yanis B." },
 ];
 
-function Stars() {
+function Stars({ className = "" }: { className?: string }) {
   return (
-    <div className="flex gap-1 text-gold">
+    <div className={`flex gap-1 text-gold ${className}`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <span key={i}>★</span>
       ))}
@@ -32,7 +32,7 @@ function Stars() {
 
 export default function Reviews() {
   return (
-    <section id="avis" className="relative bg-cream py-28 sm:py-36">
+    <section id="avis" className="relative overflow-hidden bg-cream py-28 sm:py-36">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="text-center mb-16">
           <Reveal>
@@ -49,25 +49,40 @@ export default function Reviews() {
             </div>
           </Reveal>
         </div>
+      </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {reviews.map((r, i) => (
-            <Reveal key={r.name} delay={i * 0.1}>
-              <figure className="flex h-full flex-col rounded-3xl bg-cream-soft p-8 shadow-[0_20px_60px_-30px_rgba(13,13,12,0.4)]">
-                <span className="font-display text-6xl leading-none text-gold/40">
-                  &ldquo;
-                </span>
-                <blockquote className="-mt-4 flex-1 text-ink/80 leading-relaxed">
-                  {r.text}
-                </blockquote>
-                <figcaption className="mt-6 border-t border-ink/10 pt-5">
-                  <p className="font-semibold">{r.name}</p>
-                  <p className="text-sm text-ink/50">{r.meta}</p>
-                </figcaption>
-              </figure>
-            </Reveal>
+      {/* Avis Google en défilement continu (gauche → droite) */}
+      <div className="relative">
+        <div className="flex w-max animate-marquee-reverse">
+          {[0, 1].map((dup) => (
+            <div key={dup} className="flex shrink-0" aria-hidden={dup === 1}>
+              {reviews.map((r, i) => (
+                <figure
+                  key={i}
+                  className="mr-6 flex h-full w-[300px] shrink-0 flex-col rounded-3xl bg-cream-soft p-8 shadow-[0_20px_60px_-30px_rgba(13,13,12,0.4)] sm:w-[360px]"
+                >
+                  <div className="flex items-center justify-between">
+                    <Stars className="text-sm" />
+                    <span className="text-[10px] font-semibold tracking-wide text-ink/40">
+                      AVIS GOOGLE
+                    </span>
+                  </div>
+                  <blockquote className="mt-4 flex-1 leading-relaxed text-ink/80">
+                    {r.text}
+                  </blockquote>
+                  <figcaption className="mt-6 border-t border-ink/10 pt-5">
+                    <p className="font-semibold">{r.name}</p>
+                    <p className="text-sm text-ink/50">Avis Google · ★★★★★</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           ))}
         </div>
+
+        {/* Fondus latéraux */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-cream to-transparent sm:w-28" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-cream to-transparent sm:w-28" />
       </div>
     </section>
   );

@@ -14,83 +14,28 @@ type Item = {
 const categories: { id: string; label: string; items: Item[] }[] = [
   {
     id: "kebabs",
-    label: "Kebabs & Assiettes",
+    label: "Kebab & Assiette",
     items: [
       {
-        name: "Le Cristal Original",
-        desc: "Veau & agneau marinés 24h, pain maison, crudités, sauce signature",
-        price: "9,50",
+        name: "Sandwich seul",
+        desc: "Viande marinée au feu, pain maison, crudités fraîches, sauce signature",
+        price: "9",
+      },
+      {
+        name: "Sandwich + Frites",
+        desc: "Notre sandwich accompagné de frites maison",
+        price: "10",
+      },
+      {
+        name: "Sandwich + frites + boisson",
+        desc: "La formule complète : sandwich, frites maison et boisson",
+        price: "11,50",
         signature: true,
       },
       {
-        name: "Assiette Royale",
-        desc: "Double viande, frites maison, salade, deux sauces au choix",
-        price: "13,90",
-        signature: true,
-      },
-      {
-        name: "Kebab Poulet Mariné",
-        desc: "Poulet grillé au feu, oignons confits, crudités fraîches",
-        price: "9,00",
-      },
-      {
-        name: "Galette Berbère",
-        desc: "Pain plat doré, viande mixte, harissa maison, herbes",
+        name: "Sandwich + boisson",
+        desc: "Notre sandwich accompagné d&apos;une boisson au choix",
         price: "10,50",
-      },
-    ],
-  },
-  {
-    id: "tacos",
-    label: "Tacos & Burgers",
-    items: [
-      {
-        name: "Tacos Cristal",
-        desc: "Galette, viande au choix, sauce fromagère, frites incluses",
-        price: "8,90",
-        signature: true,
-      },
-      {
-        name: "Tacos Géant 3 viandes",
-        desc: "Kebab, poulet, cordon bleu, double fromage",
-        price: "12,50",
-      },
-      {
-        name: "Le Cristal Burger",
-        desc: "Bœuf haché maison, cheddar affiné, oignons caramélisés",
-        price: "10,90",
-      },
-      {
-        name: "Chicken Burger",
-        desc: "Poulet pané croustillant, sauce blanche, salade",
-        price: "9,90",
-      },
-    ],
-  },
-  {
-    id: "extras",
-    label: "À côté & Desserts",
-    items: [
-      {
-        name: "Frites maison",
-        desc: "Pommes de terre fraîches, double cuisson, fleur de sel",
-        price: "3,50",
-      },
-      {
-        name: "Falafels (6 pcs)",
-        desc: "Pois chiches, herbes fraîches, sauce sésame",
-        price: "4,50",
-      },
-      {
-        name: "Baklava maison",
-        desc: "Feuilles de filo, pistache, miel d&apos;oranger",
-        price: "4,00",
-        signature: true,
-      },
-      {
-        name: "Thé à la menthe",
-        desc: "Servi traditionnel, à volonté",
-        price: "2,50",
       },
     ],
   },
@@ -192,8 +137,7 @@ export default function Menu() {
 
         <Reveal delay={0.1}>
           <p className="mt-12 text-center text-sm text-cream/40">
-            Menu (plat + boisson + dessert) à partir de{" "}
-            <span className="text-gold-soft">12,90 €</span> · Halal certifié
+            Préparé à la commande · Fait maison · Halal certifié
           </p>
         </Reveal>
       </div>

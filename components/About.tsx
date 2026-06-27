@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Reveal from "./Reveal";
 import { motion } from "motion/react";
 
@@ -17,9 +18,15 @@ export default function About() {
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 items-center">
           {/* Left — visual */}
           <Reveal>
-            <div className="relative">
-              <div className="aspect-[4/5] overflow-hidden rounded-[2rem] bg-charcoal">
-                <div className="h-full w-full bg-[radial-gradient(circle_at_30%_20%,_rgba(184,148,90,0.4),_transparent_55%),radial-gradient(circle_at_80%_90%,_rgba(246,240,230,0.15),_transparent_45%)]" />
+            <div className="relative mx-auto w-full max-w-xs lg:max-w-sm">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-charcoal">
+                <Image
+                  src="/images/11.jpg"
+                  alt="Le Cristal 1981"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
               </div>
               <motion.div
                 animate={{ rotate: 360 }}
@@ -42,7 +49,7 @@ export default function About() {
               </motion.div>
               <div className="absolute -bottom-7 -left-4 sm:-left-7 rounded-2xl bg-ink px-7 py-5 text-cream shadow-2xl">
                 <p className="font-display text-3xl font-bold">N°1</p>
-                <p className="text-xs text-cream/70">du quartier Mazagran</p>
+                <p className="text-xs text-cream/70">du quartier Paris</p>
               </div>
             </div>
           </Reveal>

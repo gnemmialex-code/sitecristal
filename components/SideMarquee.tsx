@@ -9,7 +9,7 @@ export default function SideMarquee({
   return (
     <div
       aria-hidden
-      className={`pointer-events-none fixed top-0 z-30 hidden h-screen w-8 overflow-hidden bg-[#c01818] md:block ${
+      className={`pointer-events-none fixed top-0 z-30 block h-screen w-6 overflow-hidden bg-[#c01818] md:w-8 ${
         side === "left" ? "left-0" : "right-0"
       }`}
     >

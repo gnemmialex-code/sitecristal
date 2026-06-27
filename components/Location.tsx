@@ -3,9 +3,8 @@
 import Reveal from "./Reveal";
 
 const hours = [
-  { d: "Lundi — Jeudi", h: "11h30 — 00h00" },
-  { d: "Vendredi — Samedi", h: "11h30 — 02h00" },
-  { d: "Dimanche", h: "12h00 — 00h00" },
+  { d: "Lundi — Vendredi", h: "11h — 22h" },
+  { d: "Samedi — Dimanche", h: "Fermé" },
 ];
 
 export default function Location() {
@@ -48,10 +47,10 @@ export default function Location() {
                   <div>
                     <p className="text-sm text-ink/50">Réservation & commande</p>
                     <a
-                      href="tel:+33100000000"
+                      href="tel:0153346017"
                       className="text-lg font-medium link-underline"
                     >
-                      01 00 00 00 00
+                      01 53 34 60 17
                     </a>
                   </div>
                 </div>
@@ -90,7 +89,7 @@ export default function Location() {
                   Itinéraire
                 </a>
                 <a
-                  href="tel:+33100000000"
+                  href="tel:0153346017"
                   className="rounded-full border border-ink/30 px-7 py-3.5 text-sm font-medium hover:border-ink hover:bg-ink hover:text-cream transition-colors"
                 >
                   Commander

@@ -12,7 +12,7 @@ const reviews = [
   { text: "La meilleure adresse du quartier. Tout est fait maison et ça se sent à chaque bouchée.", name: "Thomas R." },
   { text: "Pain moelleux, viande savoureuse, sauces parfaites. Un classique parisien qui ne déçoit jamais.", name: "Nadia S." },
   { text: "Excellent rapport qualité-prix. On sort rassasié et content à chaque fois.", name: "Kevin L." },
-  { text: "Une légende qui mérite sa réputation. Frites maison croustillantes, top !", name: "Inès M." },
+  { text: "Une légende qui mérite sa réputation. La broche faite maison, on sent la différence !", name: "Inès M." },
   { text: "Toujours du monde, et pour cause. La qualité est au rendez-vous depuis 1981.", name: "Rachid T." },
   { text: "Goût authentique, accueil au top. Mon kebab préféré sur Paris sans hésiter.", name: "Élodie F." },
   { text: "Des produits frais, une cuisson parfaite. On revient les yeux fermés.", name: "Bilal A." },
@@ -40,7 +40,7 @@ export default function Reviews() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="font-display text-4xl sm:text-6xl font-bold text-balance">
-              4,8 / 5 sur plus de 2 400 avis
+              4,8 / 5 sur plus de 115 avis
             </h2>
           </Reveal>
           <Reveal delay={0.1}>

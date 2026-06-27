@@ -51,6 +51,20 @@ export default function About() {
                 <p className="font-display text-3xl font-bold">N°1</p>
                 <p className="text-xs text-cream/70">du quartier Paris</p>
               </div>
+
+              {/* Petite vidéo en boucle, à côté de la photo */}
+              <div className="absolute -bottom-10 -right-4 sm:-right-12 w-24 sm:w-32 overflow-hidden rounded-2xl border-4 border-cream bg-charcoal shadow-2xl">
+                <video
+                  className="h-full w-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src="/videos/1.mp4" type="video/mp4" />
+                </video>
+              </div>
             </div>
           </Reveal>
 

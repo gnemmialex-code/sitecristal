@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 
 const links = [
@@ -38,35 +39,16 @@ export default function Navbar() {
             : "bg-transparent py-5 text-cream"
         }`}
       >
-        <nav className="mx-auto max-w-7xl px-5 sm:px-8 flex items-center justify-between">
-          <a href="#accueil" className="group flex items-center gap-3">
-            <span
-              className={`relative grid place-items-center h-9 w-9 rotate-45 border transition-colors duration-500 ${
-                dark
-                  ? "border-cream/70 group-hover:bg-cream"
-                  : "border-ink/70 group-hover:bg-ink"
-              }`}
-            >
-              <span
-                className={`-rotate-45 text-[10px] font-display font-bold transition-colors duration-500 ${
-                  dark ? "group-hover:text-ink" : "group-hover:text-cream"
-                }`}
-              >
-                C
-              </span>
-            </span>
-            <span className="leading-none">
-              <span className="block font-display text-lg font-bold tracking-tight">
-                Le Cristal
-              </span>
-              <span
-                className={`block text-[10px] tracking-[0.4em] ${
-                  dark ? "text-cream/60" : "text-ink/60"
-                }`}
-              >
-                EST. 1981
-              </span>
-            </span>
+        <nav className="mx-auto max-w-7xl px-7 sm:px-8 flex items-center justify-between">
+          <a href="#accueil" className="group flex items-center">
+            <Image
+              src="/images/logocr.png"
+              alt="Le Cristal 1981"
+              width={56}
+              height={56}
+              priority
+              className="h-12 w-auto sm:h-14"
+            />
           </a>
 
           <ul className="hidden lg:flex items-center gap-9 text-sm font-medium">

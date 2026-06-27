@@ -37,7 +37,7 @@ export default function Presentation() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="group relative mx-auto aspect-video w-full max-w-5xl overflow-hidden rounded-[2rem] border border-ink/10 bg-charcoal shadow-[0_40px_120px_-50px_rgba(13,13,12,0.7)]">
+          <div className="group relative mx-auto aspect-video w-full max-w-5xl overflow-hidden rounded-lg border border-ink/10 bg-charcoal shadow-[0_40px_120px_-50px_rgba(13,13,12,0.7)] sm:rounded-xl">
             <video
               ref={videoRef}
               className="h-full w-full object-cover"

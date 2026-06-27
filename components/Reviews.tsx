@@ -32,9 +32,9 @@ function Stars({ className = "" }: { className?: string }) {
 
 export default function Reviews() {
   return (
-    <section id="avis" className="relative overflow-hidden bg-cream py-28 sm:py-36">
+    <section id="avis" className="relative overflow-hidden bg-cream py-16 sm:py-36">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <Reveal>
             <p className="kicker text-xs text-gold mb-5">Ils en parlent</p>
           </Reveal>
@@ -59,7 +59,7 @@ export default function Reviews() {
               {reviews.map((r, i) => (
                 <figure
                   key={i}
-                  className="mr-6 flex h-full w-[300px] shrink-0 flex-col rounded-3xl bg-cream-soft p-8 shadow-[0_20px_60px_-30px_rgba(13,13,12,0.4)] sm:w-[360px]"
+                  className="mr-4 flex h-full w-[230px] shrink-0 flex-col rounded-2xl border border-ink/10 bg-cream-soft p-5 sm:mr-6 sm:w-[360px] sm:rounded-3xl sm:p-8"
                 >
                   <div className="flex items-center justify-between">
                     <Stars className="text-sm" />

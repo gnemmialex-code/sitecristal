@@ -81,7 +81,7 @@ export default function Hero() {
                   duration: 0.9,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="inline-block text-[18vw] sm:text-[15vw] lg:text-[13rem] text-cream drop-shadow-[0_8px_40px_rgba(0,0,0,0.5)]"
+                className="inline-block text-[15vw] sm:text-[15vw] lg:text-[13rem] text-cream drop-shadow-[0_8px_40px_rgba(0,0,0,0.5)]"
               >
                 {c}
               </motion.span>
@@ -139,12 +139,6 @@ export default function Hero() {
             Ouvert du lundi au vendredi ·{" "}
             <span className="font-semibold text-cream">11h — 22h</span>
           </p>
-          <a
-            href="tel:0153346017"
-            className="font-display text-2xl font-semibold tracking-wide text-cream hover:text-gold transition-colors"
-          >
-            01 53 34 60 17
-          </a>
           <div className="flex items-center gap-3">
             <a
               href="https://www.instagram.com/lecristal1981/"
@@ -175,7 +169,6 @@ export default function Hero() {
         style={{ opacity }}
         className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] tracking-[0.3em] text-cream/60">SCROLL</span>
         <span className="h-10 w-px bg-gradient-to-b from-cream/60 to-transparent" />
       </motion.div>
     </section>

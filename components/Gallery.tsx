@@ -44,7 +44,7 @@ export default function Gallery() {
                 return (
                   <div
                     key={i}
-                    className="group/card relative mr-4 aspect-[9/16] w-[60vw] max-w-[280px] shrink-0 overflow-hidden rounded-2xl bg-ink sm:mr-5 sm:w-[260px] lg:w-[300px]"
+                    className="group/card relative mr-3 aspect-[9/16] w-[42vw] max-w-[190px] shrink-0 overflow-hidden rounded-xl bg-ink sm:mr-5 sm:w-[260px] sm:rounded-2xl lg:w-[300px]"
                   >
                     <video
                       className="absolute inset-0 h-full w-full object-cover"

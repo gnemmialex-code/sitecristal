@@ -60,13 +60,13 @@ export default function About() {
               <p className="kicker text-xs text-gold mb-5">Notre histoire</p>
             </Reveal>
             <Reveal delay={0.05}>
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
+              <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
                 Une légende parisienne née en{" "}
                 <span className="italic text-gold">1981</span>.
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="mt-7 text-ink/70 text-lg leading-relaxed">
+              <p className="mt-7 text-ink/70 text-sm sm:text-lg leading-relaxed">
                 Tout commence rue de Mazagran, dans le Paris bouillonnant des
                 années 80. Une braise, une recette familiale et l&apos;obsession
                 du goût juste. Quarante ans plus tard, Le Cristal reste fidèle à
@@ -75,7 +75,7 @@ export default function About() {
               </p>
             </Reveal>
             <Reveal delay={0.15}>
-              <p className="mt-5 text-ink/70 text-lg leading-relaxed">
+              <p className="mt-5 text-ink/70 text-sm sm:text-lg leading-relaxed">
                 Ici, le kebab n&apos;est pas de la restauration rapide. C&apos;est
                 un savoir-faire transmis, une institution qui a vu grandir le
                 quartier.
@@ -86,10 +86,10 @@ export default function About() {
               {stats.map((s, i) => (
                 <Reveal key={s.label} delay={0.1 + i * 0.08}>
                   <div className="border-l border-ink/15 pl-5">
-                    <p className="font-display text-4xl font-bold text-ink">
+                    <p className="font-display text-3xl sm:text-4xl font-bold text-ink">
                       {s.value}
                     </p>
-                    <p className="mt-1 text-sm text-ink/55">{s.label}</p>
+                    <p className="mt-1 text-xs sm:text-sm text-ink/55">{s.label}</p>
                   </div>
                 </Reveal>
               ))}

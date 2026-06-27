@@ -54,7 +54,7 @@ function Photo({ photo, index }: { photo: (typeof photos)[number]; index: number
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.6, delay: (index % 3) * 0.08 }}
       whileHover={{ y: -6 }}
-      className="group relative aspect-[4/3] overflow-hidden rounded-2xl"
+      className="group relative aspect-[3/4] overflow-hidden rounded-xl sm:rounded-2xl"
       style={{ background: photo.bg }}
     >
       <Image
@@ -71,11 +71,11 @@ function Photo({ photo, index }: { photo: (typeof photos)[number]; index: number
 
       <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent" />
 
-      <div className="absolute inset-x-0 bottom-0 p-5">
-        <p className="text-[10px] tracking-[0.25em] text-gold-soft uppercase">
+      <div className="absolute inset-x-0 bottom-0 p-3 sm:p-5">
+        <p className="text-[9px] tracking-[0.2em] text-gold-soft uppercase sm:text-[10px] sm:tracking-[0.25em]">
           {photo.tag}
         </p>
-        <p className="font-display text-2xl font-semibold text-cream">
+        <p className="font-display text-base font-semibold text-cream sm:text-2xl">
           {photo.title}
         </p>
       </div>
@@ -98,7 +98,7 @@ export default function PhotoGallery() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {photos.map((p, i) => (
             <Photo key={p.title} photo={p} index={i} />
           ))}

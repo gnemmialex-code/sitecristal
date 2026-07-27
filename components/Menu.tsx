@@ -135,8 +135,18 @@ export default function Menu() {
           </AnimatePresence>
         </div>
 
+        <Reveal delay={0.08}>
+          <p className="mx-auto mt-8 max-w-xl rounded-2xl border border-gold/25 bg-gold/[0.06] px-5 py-3.5 text-center text-sm leading-relaxed text-cream/70">
+            <span className="font-semibold text-gold-soft">
+              À partir du 17 août
+            </span>
+            , l&apos;ensemble de nos prix augmentera de 1&nbsp;€. Merci de votre
+            compréhension et de votre fidélité.
+          </p>
+        </Reveal>
+
         <Reveal delay={0.1}>
-          <p className="mt-12 text-center text-sm text-cream/40">
+          <p className="mt-8 text-center text-sm text-cream/40">
             Préparé à la commande · Fait maison · Halal certifié
           </p>
         </Reveal>

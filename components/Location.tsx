@@ -3,8 +3,8 @@
 import Reveal from "./Reveal";
 
 const hours = [
-  { d: "Lundi — Vendredi", h: "11h — 22h" },
-  { d: "Samedi — Dimanche", h: "Fermé" },
+  { d: "Lundi — Samedi", h: "11h30 — 22h" },
+  { d: "Dimanche", h: "Fermé" },
 ];
 
 export default function Location() {
@@ -95,6 +95,16 @@ export default function Location() {
                   Commander
                 </a>
               </div>
+            </Reveal>
+
+            <Reveal delay={0.3}>
+              <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-ink/15 bg-ink/[0.04] px-4 py-2 text-xs text-ink/60">
+                <span
+                  aria-hidden
+                  className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold"
+                />
+                Commandes sur Uber Eats possibles à partir du 17 août
+              </p>
             </Reveal>
           </div>
 

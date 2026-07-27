@@ -136,8 +136,8 @@ export default function Hero() {
           className="mt-10 flex flex-col items-center gap-4 text-cream/85"
         >
           <p className="text-sm sm:text-base">
-            Ouvert du lundi au vendredi ·{" "}
-            <span className="font-semibold text-cream">11h — 22h</span>
+            Ouvert du lundi au samedi ·{" "}
+            <span className="font-semibold text-cream">11h30 — 22h</span>
           </p>
           <div className="flex items-center gap-3">
             <a

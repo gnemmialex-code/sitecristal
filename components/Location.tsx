@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "./Reveal";
+import { UBER_EATS_URL } from "@/lib/links";
 
 const hours = [
   { d: "Lundi — Samedi", h: "11h30 — 22h" },
@@ -89,22 +90,14 @@ export default function Location() {
                   Itinéraire
                 </a>
                 <a
-                  href="tel:0153346017"
+                  href={UBER_EATS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="rounded-full border border-ink/30 px-7 py-3.5 text-sm font-medium hover:border-ink hover:bg-ink hover:text-cream transition-colors"
                 >
-                  Commander
+                  Commander sur Uber Eats
                 </a>
               </div>
-            </Reveal>
-
-            <Reveal delay={0.3}>
-              <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-ink/15 bg-ink/[0.04] px-4 py-2 text-xs text-ink/60">
-                <span
-                  aria-hidden
-                  className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold"
-                />
-                Commandes sur Uber Eats possibles à partir du 17 août
-              </p>
             </Reveal>
           </div>
 

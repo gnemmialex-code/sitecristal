@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { UBER_EATS_URL } from "@/lib/links";
 
 const title = "CRISTAL";
 
@@ -125,6 +126,23 @@ export default function Hero() {
             className="rounded-full border border-cream/40 px-8 py-3.5 text-sm font-medium text-cream hover:border-cream hover:bg-cream hover:text-ink transition-colors"
           >
             Nous trouver
+          </a>
+          <a
+            href={UBER_EATS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden rounded-full bg-gold px-8 py-3.5 text-sm font-semibold text-ink transition-colors hover:bg-gold-soft"
+          >
+            <span className="relative z-10 inline-flex items-center gap-2">
+              Commander en ligne
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden
+                className="h-3.5 w-3.5 fill-none stroke-current stroke-[2.5] transition-transform duration-300 group-hover:translate-x-0.5"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
           </a>
         </motion.div>
 

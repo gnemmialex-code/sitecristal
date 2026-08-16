@@ -19,23 +19,23 @@ const categories: { id: string; label: string; items: Item[] }[] = [
       {
         name: "Sandwich seul",
         desc: "Viande marinée au feu, pain maison, crudités fraîches, sauce signature",
-        price: "9",
+        price: "10",
       },
       {
         name: "Sandwich + Frites",
         desc: "Notre sandwich accompagné de frites maison",
-        price: "10",
+        price: "11",
       },
       {
         name: "Sandwich + frites + boisson",
         desc: "La formule complète : sandwich, frites maison et boisson",
-        price: "11,50",
+        price: "12,50",
         signature: true,
       },
       {
         name: "Sandwich + boisson",
         desc: "Notre sandwich accompagné d&apos;une boisson au choix",
-        price: "10,50",
+        price: "11,50",
       },
     ],
   },
@@ -134,16 +134,6 @@ export default function Menu() {
             </motion.div>
           </AnimatePresence>
         </div>
-
-        <Reveal delay={0.08}>
-          <p className="mx-auto mt-8 max-w-xl rounded-2xl border border-gold/25 bg-gold/[0.06] px-5 py-3.5 text-center text-sm leading-relaxed text-cream/70">
-            <span className="font-semibold text-gold-soft">
-              À partir du 17 août
-            </span>
-            , l&apos;ensemble de nos prix augmentera de 1&nbsp;€. Merci de votre
-            compréhension et de votre fidélité.
-          </p>
-        </Reveal>
 
         <Reveal delay={0.1}>
           <p className="mt-8 text-center text-sm text-cream/40">

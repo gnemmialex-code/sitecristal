@@ -1,17 +1,12 @@
-Déposez vos photos ici.
+Ce dossier ne contient plus que le logo.
 
-GALERIE "En images" (section photos du site)
-  - photo-1.jpg
-  - photo-2.jpg
-  - photo-3.jpg
-  - photo-4.jpg
-  - photo-5.jpg
-  - photo-6.jpg
+Les photos du site (1.jpg → 12.jpg) sont hébergées sur Supabase Storage,
+dans le bucket public « IMAGE ».
+
+  - Ajouter / remplacer une photo : Supabase → Storage → IMAGE → Upload.
+  - Gardez la numérotation (1.jpg, 2.jpg, ...) : le code la génère
+    automatiquement via lib/media.ts (mediaImage).
 
 Conseils :
-  - Formats JPG, PNG ou WebP. Le WebP est le plus léger.
-  - Idéalement en paysage (ex. 1600 x 1200) ou carré (ex. 1200 x 1200).
-  - Gardez le même nom de fichier (photo-1.jpg ...) pour qu'elles
-    s'affichent automatiquement.
-  - Tant qu'aucun fichier n'est présent, un visuel dégradé s'affiche
-    à la place.
+  - JPG, PNG ou WebP. Le WebP est le plus léger.
+  - Paysage (ex. 1600 x 1200) ou carré (ex. 1200 x 1200).

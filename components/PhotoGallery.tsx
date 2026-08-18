@@ -4,42 +4,43 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import Reveal from "./Reveal";
+import { mediaImage } from "@/lib/media";
 
 const photos = [
   {
     title: "La devanture",
     tag: "Rue de Mazagran",
-    src: "/images/1.jpg",
+    src: mediaImage("1.jpg"),
     bg: "radial-gradient(circle at 35% 30%, rgba(171,132,66,0.55), transparent 60%), linear-gradient(160deg, #2a2620, #0d0d0c)",
   },
   {
     title: "La broche",
     tag: "Cuisson au feu",
-    src: "/images/4.jpg",
+    src: mediaImage("4.jpg"),
     bg: "radial-gradient(circle at 65% 40%, rgba(239,227,205,0.3), transparent 55%), linear-gradient(160deg, #211e19, #14130f)",
   },
   {
     title: "L'assiette",
     tag: "Générosité",
-    src: "/images/12.jpg",
+    src: mediaImage("12.jpg"),
     bg: "radial-gradient(circle at 40% 65%, rgba(194,160,99,0.45), transparent 55%), linear-gradient(160deg, #2a2620, #0d0d0c)",
   },
   {
     title: "Légumes frais",
     tag: "Fait maison",
-    src: "/images/6.jpg",
+    src: mediaImage("6.jpg"),
     bg: "radial-gradient(circle at 55% 35%, rgba(171,132,66,0.4), transparent 60%), linear-gradient(160deg, #1a1916, #14130f)",
   },
   {
     title: "Les sauces",
     tag: "Préparées le matin",
-    src: "/images/5.jpg",
+    src: mediaImage("5.jpg"),
     bg: "radial-gradient(circle at 45% 35%, rgba(194,160,99,0.5), transparent 58%), linear-gradient(160deg, #211e19, #0d0d0c)",
   },
   {
     title: "La salle",
     tag: "Ambiance 1981",
-    src: "/images/8.jpg",
+    src: mediaImage("8.jpg"),
     bg: "radial-gradient(circle at 60% 55%, rgba(171,132,66,0.35), transparent 60%), linear-gradient(160deg, #2a2620, #14130f)",
   },
 ];

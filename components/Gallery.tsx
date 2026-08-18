@@ -2,17 +2,9 @@
 
 import { useState } from "react";
 import Reveal from "./Reveal";
+import { mediaVideo } from "@/lib/media";
 
-const videos = [
-  "/videos/1.mp4",
-  "/videos/2.mp4",
-  "/videos/3.mp4",
-  "/videos/4.mp4",
-  "/videos/5.mp4",
-  "/videos/6.mp4",
-  "/videos/7.mp4",
-  "/videos/8.mp4",
-];
+const videos = Array.from({ length: 8 }, (_, i) => mediaVideo(`${i + 1}.mp4`));
 
 export default function Gallery() {
   // Index de l'unique vidéo dont le son est activé (null = toutes muettes)

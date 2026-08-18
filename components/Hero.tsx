@@ -4,10 +4,11 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { UBER_EATS_URL } from "@/lib/links";
+import { mediaImage } from "@/lib/media";
 
 const title = "CRISTAL";
 
-const bgImages = Array.from({ length: 12 }, (_, i) => `/images/${i + 1}.jpg`);
+const bgImages = Array.from({ length: 12 }, (_, i) => mediaImage(`${i + 1}.jpg`));
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);

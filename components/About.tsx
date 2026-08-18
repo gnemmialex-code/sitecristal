@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
 import { motion } from "motion/react";
+import { mediaImage, mediaVideo } from "@/lib/media";
 
 const stats = [
   { value: "1981", label: "Année de création" },
@@ -21,7 +22,7 @@ export default function About() {
             <div className="relative mx-auto w-full max-w-xs lg:max-w-sm">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-charcoal">
                 <Image
-                  src="/images/11.jpg"
+                  src={mediaImage("11.jpg")}
                   alt="Le Cristal 1981"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -62,7 +63,7 @@ export default function About() {
                   playsInline
                   preload="metadata"
                 >
-                  <source src="/videos/1.mp4" type="video/mp4" />
+                  <source src={mediaVideo("1.mp4")} type="video/mp4" />
                 </video>
               </div>
             </div>

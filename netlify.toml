@@ -1,0 +1,15 @@
+# Configuration Netlify — site Next.js (App Router, Next 16).
+
+[build]
+  command = "npm run build"
+  # Le plugin Next.js transforme .next en fonctions + assets statiques.
+  publish = ".next"
+
+[build.environment]
+  # Next 16 exige Node >= 20. On épingle pour éviter qu'un changement de
+  # version par défaut chez Netlify ne casse le build.
+  NODE_VERSION = "22"
+
+# Runtime Next.js de Netlify : SSR, routes dynamiques et next/image.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

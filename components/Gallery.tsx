@@ -4,7 +4,8 @@ import { useState } from "react";
 import Reveal from "./Reveal";
 import { mediaVideo } from "@/lib/media";
 
-const videos = Array.from({ length: 8 }, (_, i) => mediaVideo(`${i + 1}.mp4`));
+// 11 vidéos dans le dossier video/ du bucket Supabase.
+const videos = Array.from({ length: 11 }, (_, i) => mediaVideo(`${i + 1}.mp4`));
 
 export default function Gallery() {
   // Index de l'unique vidéo dont le son est activé (null = toutes muettes)

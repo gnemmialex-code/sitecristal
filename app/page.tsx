@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import SideMarquee from "@/components/SideMarquee";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
+import Viral from "@/components/Viral";
 import About from "@/components/About";
 import Presentation from "@/components/Presentation";
 import Gallery from "@/components/Gallery";
@@ -20,6 +21,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Marquee />
+        <Viral />
         <About />
         <Presentation />
         <Gallery />

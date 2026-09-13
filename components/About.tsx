@@ -3,7 +3,11 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
 import { motion } from "motion/react";
-import { mediaImage, mediaVideo } from "@/lib/media";
+import LazyVideo from "./LazyVideo";
+import { mediaImage, mediaPoster, mediaVideo } from "@/lib/media";
+
+// Différente de la vidéo virale (1), affichée juste au-dessus.
+const ABOUT_VIDEO = "8";
 
 const stats = [
   { value: "1981", label: "Année de création" },
@@ -22,7 +26,7 @@ export default function About() {
             <div className="relative mx-auto w-full max-w-xs lg:max-w-sm">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-charcoal">
                 <Image
-                  src={mediaImage("11.jpg")}
+                  src={mediaImage("comptoir")}
                   alt="Le Cristal 1981"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -55,16 +59,11 @@ export default function About() {
 
               {/* Petite vidéo en boucle, à côté de la photo */}
               <div className="absolute -bottom-10 -right-4 sm:-right-12 w-24 sm:w-32 overflow-hidden rounded-2xl border-4 border-cream bg-charcoal shadow-2xl">
-                <video
+                <LazyVideo
                   className="h-full w-full object-cover"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
-                >
-                  <source src={mediaVideo("1.mp4")} type="video/mp4" />
-                </video>
+                  src={mediaVideo(ABOUT_VIDEO)}
+                  poster={mediaPoster(ABOUT_VIDEO)}
+                />
               </div>
             </div>
           </Reveal>

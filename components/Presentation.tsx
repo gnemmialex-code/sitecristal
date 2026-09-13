@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
 
 // iOS Safari n'expose le plein écran que sur l'élément <video> lui-même
@@ -12,6 +12,22 @@ export default function Presentation() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   const [muted, setMuted] = useState(true);
+
+  // Le film (7 min) ne se télécharge et ne joue que lorsqu'il est à l'écran.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      },
+      { rootMargin: "150px" },
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
 
   const toggleSound = () => {
     const v = videoRef.current;
@@ -62,11 +78,10 @@ export default function Presentation() {
             <video
               ref={videoRef}
               className="h-full w-full object-cover [:fullscreen_&]:object-contain"
-              autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="none"
             >
               {/* Film de présentation (format paysage 16:9) */}
               <source src="/videos/interview.mp4" type="video/mp4" />

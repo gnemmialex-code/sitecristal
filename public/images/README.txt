@@ -1,12 +1,9 @@
-Ce dossier ne contient plus que le logo.
+Ce dossier ne contient que le logo.
 
-Les photos du site (1.jpg → 12.jpg) sont hébergées sur Supabase Storage,
-dans le bucket public « IMAGE ».
+Les photos du site sont dans public/media/photos. Elles sont copiées et
+compressées depuis le bucket Supabase privé « videos & images » (dossier IMAGE).
 
-  - Ajouter / remplacer une photo : Supabase → Storage → IMAGE → Upload.
-  - Gardez la numérotation (1.jpg, 2.jpg, ...) : le code la génère
-    automatiquement via lib/media.ts (mediaImage).
-
-Conseils :
-  - JPG, PNG ou WebP. Le WebP est le plus léger.
-  - Paysage (ex. 1600 x 1200) ou carré (ex. 1200 x 1200).
+  - Ajouter / remplacer une photo : Supabase → Storage → videos & images →
+    IMAGE → Upload, puis lancer `npm run media:sync` et committer.
+  - Une nouvelle photo garde son nom d'origine, sauf si on lui donne un nom
+    lisible dans PHOTO_NAMES (scripts/sync-media.mjs).

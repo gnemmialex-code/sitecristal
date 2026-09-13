@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Reveal from "./Reveal";
-import { mediaVideo } from "@/lib/media";
+import LazyVideo from "./LazyVideo";
+import { mediaPoster, mediaVideo } from "@/lib/media";
 
 const CREDIT_HANDLE = "panameafaim";
 const CREDIT_URL = `https://www.instagram.com/${CREDIT_HANDLE}/`;
@@ -77,16 +78,12 @@ export default function Viral() {
               className="absolute -inset-3 rounded-[2rem] border border-gold/35 sm:-inset-4"
             />
             <div className="relative aspect-[9/16] overflow-hidden rounded-[1.6rem] bg-ink shadow-2xl">
-              <video
+              <LazyVideo
                 className="absolute inset-0 h-full w-full object-cover"
-                autoPlay
+                src={mediaVideo("1")}
+                poster={mediaPoster("1")}
                 muted={!sound}
-                loop
-                playsInline
-                preload="metadata"
-              >
-                <source src={mediaVideo("20.mp4")} type="video/mp4" />
-              </video>
+              />
               <div className="pointer-events-none absolute inset-0 rounded-[1.6rem] ring-1 ring-inset ring-cream/10" />
 
               <button

@@ -1,38 +1,13 @@
-// 👉 Médias hébergés sur Supabase Storage (bucket public « VIDEO-CRISTAL »,
-//    dossiers « photo » et « video »). Seuls le logo et le film de
-//    présentation restent dans /public.
+// 👉 Les médias sont servis par le site lui-même depuis public/media/.
+//    Source : bucket Supabase privé « videos & images » (dossiers IMAGE et
+//    VIDEO), copié et compressé avec `npm run media:sync`. Aucun visiteur ne
+//    télécharge donc depuis Supabase.
 
-const BUCKET = "VIDEO-CRISTAL";
+/** Photo de public/media/photos — ex. mediaImage("devanture") */
+export const mediaImage = (name: string) => `/media/photos/${name}.jpg`;
 
-// Projet Supabase par défaut. Sert de filet quand aucune variable
-// d'environnement n'est fournie (build d'aperçu, clone frais…), pour que le
-// build n'échoue jamais sur une simple variable oubliée. Ces valeurs sont
-// publiques : elles figurent déjà dans chaque URL d'image servie au navigateur.
-const DEFAULT_SUPABASE_URL = "https://mejoyeftrfidswbereky.supabase.co";
+/** Vidéo verticale de public/media/videos — ex. mediaVideo("1") */
+export const mediaVideo = (name: string) => `/media/videos/${name}.mp4`;
 
-const STORAGE_PATH = "/storage/v1/object/public";
-
-function resolveBase() {
-  const explicit = process.env.NEXT_PUBLIC_MEDIA_URL;
-  if (explicit) return explicit;
-
-  // NEXT_PUBLIC_MEDIA_URL n'est qu'un raccourci : on sait la reconstruire.
-  const projectUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  if (projectUrl) return `${projectUrl.replace(/\/$/, "")}${STORAGE_PATH}`;
-
-  console.warn(
-    "[media] NEXT_PUBLIC_MEDIA_URL et NEXT_PUBLIC_SUPABASE_URL sont absentes. " +
-      "Repli sur le projet Supabase par défaut. Renseignez ces variables dans " +
-      "les paramètres de votre hébergeur (Netlify : Site configuration → " +
-      "Environment variables) pour maîtriser la source des médias.",
-  );
-  return `${DEFAULT_SUPABASE_URL}${STORAGE_PATH}`;
-}
-
-const root = `${resolveBase().replace(/\/$/, "")}/${BUCKET}`;
-
-/** Photo du dossier photo/ — ex. mediaImage("1.jpg") */
-export const mediaImage = (file: string) => `${root}/photo/${file}`;
-
-/** Vidéo du dossier video/ — ex. mediaVideo("1.mp4") */
-export const mediaVideo = (file: string) => `${root}/video/${file}`;
+/** Image d'attente d'une vidéo, générée par le script de synchro. */
+export const mediaPoster = (name: string) => `/media/videos/${name}.jpg`;

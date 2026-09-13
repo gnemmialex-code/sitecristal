@@ -2,10 +2,14 @@
 
 import { useState } from "react";
 import Reveal from "./Reveal";
-import { mediaVideo } from "@/lib/media";
+import LazyVideo from "./LazyVideo";
+import { mediaPoster, mediaVideo } from "@/lib/media";
 
-// 11 vidéos dans le dossier video/ du bucket Supabase.
-const videos = Array.from({ length: 11 }, (_, i) => mediaVideo(`${i + 1}.mp4`));
+// Les 11 vidéos du dossier VIDEO du bucket (1.mp4 → 11.mp4).
+const videos = Array.from({ length: 11 }, (_, i) => ({
+  src: mediaVideo(`${i + 1}`),
+  poster: mediaPoster(`${i + 1}`),
+}));
 
 export default function Gallery() {
   // Index de l'unique vidéo dont le son est activé (null = toutes muettes)
@@ -32,23 +36,19 @@ export default function Gallery() {
         <div className="flex w-max animate-marquee-reverse">
           {[0, 1].map((dup) => (
             <div key={dup} className="flex shrink-0" aria-hidden={dup === 1}>
-              {videos.map((src, i) => {
+              {videos.map((video, i) => {
                 const hasSound = dup === 0 && soundIndex === i;
                 return (
                   <div
                     key={i}
                     className="group/card relative mr-3 aspect-[9/16] w-[42vw] max-w-[190px] shrink-0 overflow-hidden rounded-xl bg-ink sm:mr-5 sm:w-[260px] sm:rounded-2xl lg:w-[300px]"
                   >
-                    <video
+                    <LazyVideo
                       className="absolute inset-0 h-full w-full object-cover"
-                      autoPlay
+                      src={video.src}
+                      poster={video.poster}
                       muted={!hasSound}
-                      loop
-                      playsInline
-                      preload="metadata"
-                    >
-                      <source src={src} type="video/mp4" />
-                    </video>
+                    />
                     <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-ink/10" />
 
                     {/* Unique contrôle : activer / couper le son de cette vidéo */}

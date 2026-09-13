@@ -1,14 +1,9 @@
-Ce dossier ne contient plus que le film de présentation (interview.mp4),
-trop volumineux pour être servi depuis Supabase.
+Ce dossier ne contient que le film de présentation (interview.mp4, 16:9).
 
-Les vidéos verticales de la galerie (1.mp4 → 8.mp4) sont hébergées sur
-Supabase Storage, dans le bucket public « VIDEO ».
+Les vidéos verticales (1.mp4 → 11.mp4) sont dans public/media/videos. Elles sont
+copiées et compressées (540 x 960) depuis le bucket Supabase privé
+« videos & images » (dossier VIDEO), avec une image d'attente par vidéo.
 
-  - Ajouter / remplacer une vidéo : Supabase → Storage → VIDEO → Upload.
-  - Gardez la numérotation (1.mp4, 2.mp4, ...) : le code la génère
-    automatiquement via lib/media.ts (mediaVideo).
-
-Conseils :
-  - MP4 (H.264 + AAC) pour une compatibilité maximale.
-  - Galerie : ratio 9:16 (ex. 1080 x 1920).
-  - Présentation : ratio 16:9 (ex. 1920 x 1080).
+  - Ajouter / remplacer une vidéo : Supabase → Storage → videos & images →
+    VIDEO → Upload, puis lancer `npm run media:sync` et committer.
+  - Gardez la numérotation (1.mp4, 2.mp4, ...).

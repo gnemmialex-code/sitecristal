@@ -33,6 +33,9 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# médias bruts téléchargés depuis Supabase (npm run media:sync)
+/.media-cache/
+
 # vercel
 .vercel
 

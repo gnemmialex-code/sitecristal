@@ -10,6 +10,18 @@
   # version par défaut chez Netlify ne casse le build.
   NODE_VERSION = "22"
 
+# Photos et vidéos : le navigateur les garde 7 jours, sans les redemander à
+# chaque visite (moins de bande passante consommée).
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/videos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
 # Runtime Next.js de Netlify : SSR, routes dynamiques et next/image.
 [[plugins]]
   package = "@netlify/plugin-nextjs"

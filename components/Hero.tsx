@@ -8,7 +8,23 @@ import { mediaImage } from "@/lib/media";
 
 const title = "CRISTAL";
 
-const bgImages = Array.from({ length: 12 }, (_, i) => mediaImage(`${i + 1}.jpg`));
+// Les 14 photos du bucket, ordonnées pour éviter deux clichés proches côte à côte.
+const bgImages = [
+  "devanture",
+  "chef-broche",
+  "crudites",
+  "client-sandwich",
+  "neon",
+  "broche-coupe",
+  "terrasse",
+  "comptoir",
+  "harissa",
+  "client-frites",
+  "chef-broche-2",
+  "comptoir-formules",
+  "broche-gros-plan",
+  "livreur",
+].map(mediaImage);
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -25,7 +41,7 @@ export default function Hero() {
       ref={ref}
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-ink"
     >
-      {/* Scrolling photo background (1.jpg → 12.jpg) */}
+      {/* Scrolling photo background */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <div className="flex h-full w-max animate-marquee-slow">
           {[0, 1].map((dup) => (
